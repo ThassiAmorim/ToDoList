@@ -1,27 +1,28 @@
 .progress-container {
-    display: inline-block;
-    top: 3px;
-    width: 120px; 
-    height: 14px; 
-    background-color: lightgray;
-    border: 1px solid black; 
-    border-radius: 3px;
-    position: relative;
-  }
-  
-  .progress-bar {
-    display: block;
-    height: 100%;
-    background-color: rgb(138, 233, 138); 
-    width: 0; 
-    transition: width 0.3s ease; 
-  }
-  
-  .progress-label {
-    position: absolute; 
-    top: -3px;
-    right: -60px; 
-    height: 100%;
-    line-height: 20px;
-    color: black;
-  }
+  display: inline-block;
+  width: 120px; 
+  height: 14px; 
+  background-color: lightgray;
+  border: 1px solid black; 
+  border-radius: 3px;
+  position: relative;
+}
+
+.progress-bar {
+  display: block;
+  height: 100%;
+  background-color: rgb(138, 233, 138); 
+  width: 0; 
+  transition: width 0.3s ease; 
+}
+
+.progress-label {
+  position: absolute; 
+  top: 50%;                           
+  left: 100%;                         
+  margin-left: 10px;                  
+  transform: translateY(-50%);         
+  height: 20px;                       
+  line-height: 20px;                   
+  color: black;
+}

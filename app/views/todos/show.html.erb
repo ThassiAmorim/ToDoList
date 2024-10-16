@@ -21,17 +21,26 @@
     <% end %>
   </div>
   
-  <div class="new-task">
-    <%= form_for @task, class: "new-task-form" do |f| %>
-      <p><%= f.text_field :title, placeholder: "Adicionar nova tarefa", class: "task-input" %></p>
-      <%= f.hidden_field :done, value: false %>
-      <%= f.hidden_field :todo_id, value: @todo.id %>
-      <%= f.submit "Adicionar tarefa", class: "btn-submit" %>
-    <% end %>
-  </div>
+    <div class="new-task">
+      <%= form_for @task, class: "new-task-form" do |f| %>
+        <p><%= f.text_field :title, placeholder: "Adicionar nova tarefa", class: "task-input" %></p>
+        <%= f.hidden_field :done, value: false %>
+        <%= f.hidden_field :todo_id, value: @todo.id %>
+        
+        <div class="buttons">
+          <%= f.submit "Adicionar tarefa", class: "btn-submit" %>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="todo-actions">
-    <%= link_to "Editar Nome da Lista", edit_todo_path(@todo), class: "btn-edit" %> 
-    <%= button_to "Deletar Lista", @todo, method: :delete, class: "btn-delete" %>
+    <div class="todo-actions">
+      <div class="action-buttons">
+        <%= link_to "Editar Nome da Lista", edit_todo_path(@todo), class: "btn-edit" %> 
+        <%= button_to "Deletar Lista", @todo, method: :delete, class: "btn-delete" %>
+      </div>
+    </div>
+
+
+
   </div>
 </div>
