@@ -1,0 +1,146 @@
+<%= stylesheet_link_tag "dashboard" %>
+
+<div id="container">
+    <div class="row">
+        <div class="chart-container completion">
+            <h3>Progresso das To-Do Lists</h3>
+            <canvas id="completionChart"></canvas>
+        </div>
+
+        <div class="chart-container radar">
+            <h3>Progresso das To-Do Lists (Radar)</h3>
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+let todos = <%= @todos_data.html_safe %>;
+
+let completionChart = null;
+let radarChart = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateCharts();
+});
+
+function generatePastelColors(numColors) {
+    const colors = [];
+    for (let i = 0; i < numColors; i++) {
+        colors.push(generateRandomPastelColor());
+    }
+    return colors;
+}
+
+let h = 0;
+function generateRandomPastelColor() {
+    h += 133; 
+    h = h % 360;
+    return 'hsla(' + h + ', 100%, 50%, 0.4)';
+}
+
+function updateCharts() {
+    if (completionChart !== null) {
+        completionChart.destroy();
+    }
+    if (radarChart !== null) {
+        radarChart.destroy();
+    }
+
+    const todoLabels = todos.map(todo => todo.name);
+    const numTodos = todoLabels.length;
+    const todoColors = generatePastelColors(numTodos);
+    const taskData = todos.map(todo => todo.num_tasks);
+    const progressData = todos.map(todo => todo.progress);
+
+    // Criar o gráfico de barras (tasks por todo)
+    const completionChartCtx = document.getElementById('completionChart').getContext('2d');
+    completionChart = new Chart(completionChartCtx, {
+        type: 'bar',
+        data: {
+            labels: todoLabels,
+            datasets: [{
+                label: 'Tarefas',
+                data: taskData,
+                backgroundColor: todoColors,
+                borderWidth: 1,
+                hoverOffset: 15
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Quantidade de Tarefas',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            },
+            onClick: function(event, elements) {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const label = this.data.labels[index];
+                    const baseUrl = window.location.origin;
+                    window.location.href = `${baseUrl}/todos/${todos[index].id}`;
+                }
+            },
+            onHover: function(event, elements) {
+                event.native.target.style.cursor = elements.length > 0 ? 'pointer' : 'default';
+            }
+        }
+    });
+
+    // Criar o gráfico radar (progresso por todo)
+    const radarData = {
+        labels: todoLabels,
+        datasets: [{
+            label: 'Progresso (%)',
+            data: progressData,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    const radarChartCtx = document.getElementById('radarChart').getContext('2d');
+    radarChart = new Chart(radarChartCtx, {
+        type: 'radar',
+        data: radarData,
+        options: {
+            scales: {
+                r: {
+                    suggestedMin: 0,
+                    suggestedMax: 100,
+                    pointLabels: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            },
+            onClick: function(event, elements) {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const label = this.data.labels[index];
+                    const baseUrl = window.location.origin;
+                    window.location.href = `${baseUrl}/todos/${todos[index].id}`;
+                }
+            },
+            onHover: function(event, elements) {
+                event.native.target.style.cursor = elements.length > 0 ? 'pointer' : 'default';
+            }
+        }
+    });
+}
+</script>

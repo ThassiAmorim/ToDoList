@@ -1,0 +1,100 @@
+/* dashboard.css */
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h3{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-weight: 600;
+}
+
+
+#container {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; 
+}
+
+.chart-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.completion {
+  margin-right: 5%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.completion canvas {
+  width: 90% ;
+  max-height: 70vh ;
+  max-width: 200vh; 
+}
+
+.bola {
+  margin-right: 5%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bola canvas {
+  width: 90% ;
+  max-height: 70vh ;
+  max-width: 200vh; 
+}
+
+.radar {
+  margin-right: 5%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radar canvas {
+  width: 90% ;
+  max-height: 70vh ;
+  max-width: 200vh; 
+}
+
+canvas {
+  width: 80% ;
+  height: 80% ;
+}
+
+select {
+  font-size: 1rem; /* Para igualar o tamanho da fonte */
+  padding: 5px;    /* Um pouco de padding para estética */
+  height: auto;    /* Ajusta a altura conforme o conteúdo */
+  width: auto;     /* Deixa o select ocupar espaço conforme necessário */
+  margin-left: 10px; /* Espaço entre a palavra Etapa e o select */
+}
+
+.chart-container.completion h3 {
+  display: flex;
+  align-items: center; /* Alinha verticalmente o texto e o select */
+  font-size: 1.2rem; /* Ajuste o tamanho do texto, se necessário */
+}

@@ -62,6 +62,33 @@ class TodosController < ApplicationController
     end
   end
 
+
+  def dashboard
+    @todos = Todo.includes(:tasks)
+
+    @tasks_by_todo = @todos.each_with_object({}) do |todo, hash|
+      hash[todo.id] = todo.num_tasks
+    end
+
+    @progress_by_todo = @todos.each_with_object({}) do |todo, hash|
+      hash[todo.id] = todo.progresso
+    end
+
+    # convertendo os dados para um formato adequado para o JavaScript
+    @todos_data = @todos.map do |todo|
+      {
+        id: todo.id,
+        name: todo.name, # supondo que você tenha um campo `name` para cada todo
+        num_tasks: todo.num_tasks,
+        progress: todo.progresso
+      }
+    end.to_json
+
+    Rails.logger.debug "Todos data: #{@todos_data.inspect}"
+  end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
