@@ -1,0 +1,37 @@
+<p class="notice"><%= notice %></p>
+
+<div class="todo-list">
+  <h2><%= @todo.name %></h2>
+  
+  <div class="tasks">
+    <% @tasks.each do |task| %>
+      <div class="task-item <%= 'done' if task.done %>">
+        <% if task.done == true %>
+          <strike>
+            <p class="task-title"> <%= task.title %> </p>
+          </strike>
+        <% else %>
+          <p class="task-title"> <%= task.title %> </p>
+        <% end %>
+        
+        <%= form_with(model: task, remote: true, class: "task-checkbox-form") do |f| %>
+          <%= f.check_box :done, checked: task.done, onchange: 'this.form.submit();', class: "task-checkbox" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="new-task">
+    <%= form_for @task, class: "new-task-form" do |f| %>
+      <p><%= f.text_field :title, placeholder: "Adicionar nova tarefa", class: "task-input" %></p>
+      <%= f.hidden_field :done, value: false %>
+      <%= f.hidden_field :todo_id, value: @todo.id %>
+      <%= f.submit "Adicionar tarefa", class: "btn-submit" %>
+    <% end %>
+  </div>
+
+  <div class="todo-actions">
+    <%= link_to "Editar Nome da Lista", edit_todo_path(@todo), class: "btn-edit" %> 
+    <%= button_to "Deletar Lista", @todo, method: :delete, class: "btn-delete" %>
+  </div>
+</div>

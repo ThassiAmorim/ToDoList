@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag "todo" %>
+
+<div id="<%= dom_id todo %>">
+  <p>
+    <strong>Título:</strong>
+    <%= todo.name %>
+  </p>
+
+  <p>
+    <strong>Progresso:</strong>
+    <span class="progress-container">
+      <span class="progress-bar" style="width: <%= todo.progresso  %>%;"></span>
+      <span class="progress-label"><%= todo.progresso %>%</span>
+    </span>
+  </p>
+
+</div>

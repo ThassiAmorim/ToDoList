@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag "navbar" %>
+
+<nav class="navbar">
+    <p><%= link_to "To Do List - V360", root_path, class: current_page?(root_path) ? 'active' : nil %></p>
+    <ul id="activities-links">
+        <li><%= link_to "Home", root_path,  class: current_page?(root_path) ? 'active' : nil %></li>
+        <li><%= link_to "Listas", todos_path, class: current_page?(todos_path) ? 'active' : nil %></li>    </ul>
+</nav>

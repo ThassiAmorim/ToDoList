@@ -1,0 +1,10 @@
+<h1>Editar Lista</h1>
+
+<%= render "form", todo: @todo %>
+
+<br>
+
+<div>
+  <%= link_to "Ver Lista", @todo, class: "btn-back"  %> |
+  <%= link_to "Voltar", todos_path, class: "btn-back" %>
+</div>

@@ -1,0 +1,20 @@
+<p class="notice"><%= notice %></p>
+
+<div class="todos-list">
+  <h1>Listas</h1>
+  
+  <div id="todos">
+    <% @todos.each do |todo| %>
+      <div class="todo-item">
+        <%= render todo %>
+        <p>
+          <%= link_to "Visualizar a Lista", todo, class: "btn-show" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="new-todo">
+    <%= link_to "Nova Lista", new_todo_path, class: "btn-new" %>
+  </div>
+</div>

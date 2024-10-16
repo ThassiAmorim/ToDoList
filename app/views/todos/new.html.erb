@@ -1,0 +1,13 @@
+<div class="new-todo-page">
+  <h1>Nova Lista</h1>
+
+  <div class="form-container">
+    <%= render "form", todo: @todo %>
+  </div>
+
+  <br>
+
+  <div class="back-link">
+    <%= link_to "Voltar", todos_path, class: "btn-back" %>
+  </div>
+</div>
