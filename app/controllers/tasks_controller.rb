@@ -14,16 +14,11 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+
     if @task.update(task_params)
-      respond_to do |format|
-        format.html { redirect_to todo_path(@task.todo_id) }
-        format.js   # Isso vai renderizar um arquivo .js.erb
-      end
+      redirect_to todo_path(@task.todo_id)
     else
-      respond_to do |format|
-        format.html { render :edit }
-        format.js   # Para renderizar erros, se necessário
-      end
+      redirect_to root_path
     end
   end
 

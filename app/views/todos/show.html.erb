@@ -34,9 +34,13 @@
     </div>
 
     <div class="todo-actions">
+
       <div class="action-buttons">
+
+        <%= link_to "Voltar", todos_path, class: "btn-back" %>
         <%= link_to "Editar Nome da Lista", edit_todo_path(@todo), class: "btn-edit" %> 
         <%= button_to "Deletar Lista", @todo, method: :delete, class: "btn-delete" %>
+      
       </div>
     </div>
 

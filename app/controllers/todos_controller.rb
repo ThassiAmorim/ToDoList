@@ -78,7 +78,7 @@ class TodosController < ApplicationController
     @todos_data = @todos.map do |todo|
       {
         id: todo.id,
-        name: todo.name, # supondo que você tenha um campo `name` para cada todo
+        name: todo.name, 
         num_tasks: todo.num_tasks,
         progress: todo.progresso
       }

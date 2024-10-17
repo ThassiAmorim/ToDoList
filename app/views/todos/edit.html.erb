@@ -1,10 +1,19 @@
-<h1>Editar Lista</h1>
+<%= stylesheet_link_tag "new" %>
 
-<%= render "form", todo: @todo %>
+<div class="new-todo-page">
 
-<br>
+  <h1>Editar Lista</h1>
 
-<div>
-  <%= link_to "Ver Lista", @todo, class: "btn-back"  %> |
-  <%= link_to "Voltar", todos_path, class: "btn-back" %>
+  <div class="form-container">
+    <%= render "form", todo: @todo %>
+  </div>
+
+  <br>
+
+  <div class="back-link">
+    <%= link_to "Ver Lista", @todo, class: "btn-back"  %> |
+    <%= link_to "Voltar", todos_path, class: "btn-back" %>
+  </div>
+
 </div>
+
