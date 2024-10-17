@@ -4,6 +4,14 @@ class TodosController < ApplicationController
   # GET /todos or /todos.json
   def index
     @todos = Todo.all
+
+    #filtro de busca
+    @query = params[:query]
+
+    if @query.present?
+      @todos = @todos.where("name ILIKE ?", "%#{@query}%")
+    end
+
   end
 
   def home
@@ -78,7 +86,7 @@ class TodosController < ApplicationController
     @todos_data = @todos.map do |todo|
       {
         id: todo.id,
-        name: todo.name, 
+        name: todo.name,
         num_tasks: todo.num_tasks,
         progress: todo.progresso
       }

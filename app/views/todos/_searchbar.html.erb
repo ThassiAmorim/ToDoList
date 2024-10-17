@@ -1,0 +1,12 @@
+
+
+<%= form_tag root_path, method: :get do %>
+
+    <label for="query">Nome da Lista:</label>
+    <%= text_field_tag :query, params[:query], placeholder: "Opcional"%>
+
+    <%= submit_tag "Buscar"%>
+
+
+<% end %>
+
