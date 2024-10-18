@@ -1,25 +1,30 @@
-<p class="notice"><%= notice %></p>
-
 <div class="todo-list">
-  <h2><%= @todo.name %></h2>
+  <h2 class=todo-title><%= @todo.name %></h2>
+
   
-  <div class="tasks">
-    <% @tasks.each do |task| %>
-      <div class="task-item <%= 'done' if task.done %>">
-        <% if task.done == true %>
+<div class="tasks">
+  <% @tasks.each do |task| %>
+    <div class="task-item <%= 'done' if task.done %>">
+      <div class="task-content">
+        <% if task.done %>
           <strike>
             <p class="task-title"> <%= task.title %> </p>
           </strike>
         <% else %>
           <p class="task-title"> <%= task.title %> </p>
         <% end %>
-        
+      </div>
+      
+      <div class="task-actions">
         <%= form_with(model: task, remote: true, class: "task-checkbox-form") do |f| %>
           <%= f.check_box :done, checked: task.done, onchange: 'this.form.submit();', class: "task-checkbox" %>
         <% end %>
+        <%= button_to 'x', task, method: :delete, class: "btn-delete-task" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
+
   
     <div class="new-task">
       <%= form_for @task, class: "new-task-form" do |f| %>
