@@ -95,6 +95,49 @@ class TodosController < ApplicationController
     Rails.logger.debug "Todos data: #{@todos_data.inspect}"
   end
 
+  # def planilha
+  #   todos = Todo.all
+
+  #   p = Axlsx::Package.new
+  #   wb = p.workbook
+
+  #   center_style = wb.styles.add_style(
+  #     alignment: { vertical: :center, horizontal: :center, wrap_text: true }
+  #   )
+  #   edge_style = wb.styles.add_style(
+  #     alignment: { vertical: :center, wrap_text: true }
+  #   )
+  #   percent_style = wb.styles.add_style(format_code: '0.00%')
+
+  #   wb.add_worksheet(name: "Relatório") do |sheet|
+  #     sheet.add_row ["Lista", "Atividades", "Concluída?", "Percentual de Conclusão"],
+  #                   style: [center_style, center_style, center_style, center_style]
+
+  #     todos.each do |todo|
+  #       tasks = todo.tasks
+  #       next if tasks.empty?
+
+  #       tasks.each do |task|
+  #         sheet.add_row [
+  #           todo.name,
+  #           task.title,
+  #           task.done ? 'Sim' : 'Não',
+  #           todo.progresso / 100
+  #         ], style: [center_style, edge_style, center_style, percent_style]
+  #       end
+
+
+  #       sheet.merge_cells("A#{sheet.rows.size - tasks.size + 1}:A#{sheet.rows.size}")
+  #       sheet.merge_cells("D#{sheet.rows.size - tasks.size + 1}:D#{sheet.rows.size}")
+  #     end
+  #   end
+
+
+  #   send_data p.to_stream.read, filename: 'relatorio.xlsx', type: "application/xlsx"
+  # end
+
+
+
 
 
   private
