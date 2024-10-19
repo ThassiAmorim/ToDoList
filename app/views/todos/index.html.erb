@@ -3,8 +3,10 @@
 <div class="todos-list">
   <h1>Olá! O que vamos fazer hoje?</h1>
 
-  <%= render "searchbar" %>
-
+    <% if @todos.any? %>
+      <%= render "searchbar" %>
+    <% end %>
+  
   <div id="todos">
     <% @todos.each do |todo| %>
       <div class="todo-item">
@@ -18,10 +20,9 @@
 
   <div class="actions-buttons">
     <%= link_to "Nova Lista", new_todo_path, class: "btn-new" %>
-    <%
-=begin%>
- <%= link_to "Gerar Relatórios", planilha_path, class: "btn-report" %> 
-<%
-=end%>
+
+    <% if @todos.any? %>
+      <%= link_to "Gerar Planilha", planilha_path, class: "btn-planilha" %> 
+    <% end %>
   </div>
 </div>

@@ -61,7 +61,7 @@ body {
   }
   
   .btn-new {
-    background-color: #3498db;
+    background-color: #019e1b;
     color: #ffffff;
     padding: 10px 15px;
     border-radius: 5px;
@@ -71,6 +71,20 @@ body {
   }
   
   .btn-new:hover {
+    background-color: #087c1b;
+  }
+
+  .btn-planilha {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+  }
+  
+  .btn-planilha:hover {
     background-color: #2980b9;
   }
   
