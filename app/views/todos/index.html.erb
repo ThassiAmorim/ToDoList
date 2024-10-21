@@ -24,5 +24,13 @@
     <% if @todos.any? %>
       <%= link_to "Gerar Planilha", planilha_path, class: "btn-planilha" %> 
     <% end %>
+
+    <%= form_with url: upload_image_todos_path, local: true, method: :post, multipart: true do |form| %>
+    <%= form.label :image, "Envie sua lista física:" %>
+    <%= form.file_field :image %>
+    <%= form.submit "Enviar", class: "btn-submit" %>
+  <% end %>
+
+
   </div>
 </div>

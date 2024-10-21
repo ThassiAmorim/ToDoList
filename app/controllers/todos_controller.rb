@@ -1,5 +1,8 @@
+require "google/cloud/vision/v1"
+
 class TodosController < ApplicationController
   before_action :set_todo, only: %i[ show edit update destroy ]
+
 
   # GET /todos or /todos.json
   def index
@@ -140,7 +143,30 @@ class TodosController < ApplicationController
   end
 
 
+  def upload_image
+    if params[:image].present?
+      image_path = params[:image].path
 
+
+      image_annotator = Google::Cloud::Vision::V1::ImageAnnotator::Client.new
+
+
+      response = image_annotator.document_text_detection image: image_path
+      ocr_text = response.responses.first.full_text_annotation.text
+
+
+      todo = Todo.create(name: 'Lista Fisica')
+
+
+      ocr_text.each_line do |line|
+        todo.tasks.create(title: line.strip) unless line.strip.empty?
+      end
+
+      redirect_to todo_path(todo), notice: "Lista física criada com sucesso!"
+    else
+      redirect_to todos_path, alert: "Por favor, envie uma imagem."
+    end
+  end
 
 
   private

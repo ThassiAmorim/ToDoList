@@ -73,3 +73,4 @@ end
 
 #minhas gemas
 gem 'caxlsx'
+gem 'google-cloud-vision'
