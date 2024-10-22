@@ -24,10 +24,10 @@ body {
 .navbar p{
     color: rgb(44, 44, 44); 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 5px;
+    margin: 0;
     text-align: left; 
     text-decoration: none;
-    padding: 0;
+    padding: 2px;
 }
 
 #activities-links {
@@ -64,22 +64,26 @@ body {
 }
 
   .logo-container {
-    display: flex; /* Usar flexbox para logo e título juntos */
-    align-items: center; /* Centraliza verticalmente logo e título */
+    display: flex; 
+    align-items: center; 
   }
   
   .navbar-title {
-    margin-left: 10px; /* Espaçamento entre a logo e o título */
-    font-size: 20px; /* Ajuste do tamanho da fonte, se necessário */
+    margin-left: 10px; 
+    font-size: 20px; 
+  }
+
+  img {
+    margin-top: 3px; 
   }
   
   #activities-links {
-    list-style: none; /* Remove os marcadores da lista */
-    display: flex; /* Exibe os links em linha */
-    gap: 15px; /* Espaço entre os links */
+    list-style: none;
+    display: flex; 
+    gap: 15px; 
   }
   
   #activities-links li {
-    display: inline; /* Garante que os links sejam exibidos em linha */
+    display: inline; 
   }
   
