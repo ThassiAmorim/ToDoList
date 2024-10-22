@@ -1,11 +1,12 @@
-<p class="notice"><%= notice %></p>
+<%= stylesheet_link_tag "index" %>
 
 <div class="todos-list">
   <h1>Olá! O que vamos fazer hoje?</h1>
 
-    <% if @todos.any? %>
-      <%= render "searchbar" %>
-    <% end %>
+  <% if @todos.any? %>
+    <%= render "searchbar" %>
+  <% end %>
+
   
   <div id="todos">
     <% @todos.each do |todo| %>
@@ -18,19 +19,27 @@
     <% end %>
   </div>
 
-  <div class="actions-buttons">
-    <%= link_to "Nova Lista", new_todo_path, class: "btn-new" %>
+  <% if not @query.present? %>
 
-    <% if @todos.any? %>
-      <%= link_to "Gerar Planilha", planilha_path, class: "btn-planilha" %> 
-    <% end %>
+    <div class="actions-buttons">
+        <%= link_to "Nova Lista", new_todo_path, class: "btn-new" %>
 
-    <%= form_with url: upload_image_todos_path, local: true, method: :post, multipart: true do |form| %>
-    <%= form.label :image, "Envie sua lista física:" %>
-    <%= form.file_field :image %>
-    <%= form.submit "Enviar", class: "btn-submit" %>
+        <% if @todos.any? %>
+          <%= link_to "Gerar Planilha", planilha_path, class: "btn-planilha" %> 
+        <% end %>
+
+    </div>
+
+    <div class="ocr-form">
+      <%= form_with url: upload_image_todos_path, local: true, method: :post, multipart: true do |form| %>
+      <%= form.label :image, "Envie sua lista física:" %>
+      <%= form.file_field :image %>
+      <%= form.submit "Enviar", class: "btn-submit-image" %>
+      <%end%>
+    
+    </div>
+    
   <% end %>
 
 
-  </div>
 </div>

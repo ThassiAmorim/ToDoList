@@ -10,6 +10,7 @@ body {
     align-items: center; /* Centraliza verticalmente */
     padding: 5px;
     font-size: 20px;
+
 }
 
 .navbar a {
@@ -61,3 +62,24 @@ body {
     background-color: #282cff65; 
     color: #000000;
 }
+
+  .logo-container {
+    display: flex; /* Usar flexbox para logo e título juntos */
+    align-items: center; /* Centraliza verticalmente logo e título */
+  }
+  
+  .navbar-title {
+    margin-left: 10px; /* Espaçamento entre a logo e o título */
+    font-size: 20px; /* Ajuste do tamanho da fonte, se necessário */
+  }
+  
+  #activities-links {
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex; /* Exibe os links em linha */
+    gap: 15px; /* Espaço entre os links */
+  }
+  
+  #activities-links li {
+    display: inline; /* Garante que os links sejam exibidos em linha */
+  }
+  

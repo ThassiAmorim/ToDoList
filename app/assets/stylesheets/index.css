@@ -5,12 +5,6 @@ body {
     margin: 0;
   }
   
-  .notice {
-    color: green;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
   .todos-list {
     background-color: #ffffff;
     padding: 20px;
@@ -88,4 +82,21 @@ body {
     background-color: #2980b9;
   }
   
+  .ocr-form{
+    margin-top: 5px;
+  }
+
+  input[type="submit"].btn-submit-image {
+    background-color: #019e1b;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+  }
+  
+  input[type="submit"].btn-submit-image:hover {
+    background-color: #087c1b;
+  }
   
