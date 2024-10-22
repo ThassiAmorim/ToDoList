@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag "searchbar" %>
 
 <%= form_tag root_path, method: :get do %>
 
@@ -6,7 +6,9 @@
     <%= text_field_tag :query, params[:query], placeholder: "Opcional"%>
 
     <%= submit_tag "Buscar"%>
-
+    <% if  @query.present? %>
+        <%= link_to "Voltar", todos_path, id: "btn-back" %>
+    <% end %>
 
 <% end %>
 

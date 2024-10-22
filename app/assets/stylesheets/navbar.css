@@ -1,63 +1,88 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .navbar {
-    background: #a0c5fd; 
-    color: white; 
-    display: flex;
-    justify-content: space-between; /* Distribui o espaço entre os elementos */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 5px;
-    font-size: 20px;
+  background: #a0c5fd; 
+  color: white; 
+  display: flex;
+  justify-content: space-between; /* Distribui o espaço entre os elementos */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 5px;
+  font-size: 20px;
+
 }
 
 .navbar a {
-    color: rgb(44, 44, 44); 
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 5px;
-    text-align: left; 
-    text-decoration: none;
+  color: rgb(44, 44, 44); 
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin: 5px;
+  text-align: left; 
+  text-decoration: none;
 }
 
 .navbar p{
-    color: rgb(44, 44, 44); 
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 5px;
-    text-align: left; 
-    text-decoration: none;
-    padding: 0;
+  color: rgb(44, 44, 44); 
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  text-align: left; 
+  text-decoration: none;
+  padding: 2px;
 }
 
 #activities-links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 #activities-links li {
-    display: inline-block; 
-    margin-right: 20px; 
+  display: inline-block; 
+  margin-right: 20px; 
 }
 
 #activities-links li a {
-    color: rgb(0, 0, 0); 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 300;
-    text-decoration: none; 
-    padding: 5px 10px;
-    border-radius: 5px; 
-    background-color: #00000000; 
-    transition: background-color 0.8s ease;
+  color: rgb(0, 0, 0); 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 300;
+  text-decoration: none; 
+  padding: 5px 10px;
+  border-radius: 5px; 
+  background-color: #00000000; 
+  transition: background-color 0.8s ease;
 }
 
 #activities-links li a:hover {
-    background-color: #282cff65; 
+  background-color: #282cff65; 
 }
 
 #activities-links .active {
-    background-color: #282cff65; 
-    color: #000000;
+  background-color: #282cff65; 
+  color: #000000;
+}
+
+.logo-container {
+  display: flex; 
+  align-items: center; 
+}
+
+.navbar-title {
+  margin-left: 10px; 
+  font-size: 20px; 
+}
+
+img {
+  margin-top: 3px; 
+}
+
+#activities-links {
+  list-style: none;
+  display: flex; 
+  gap: 15px; 
+}
+
+#activities-links li {
+  display: inline; 
 }

@@ -1,9 +1,10 @@
-<%= stylesheet_link_tag "navbar" %>
-
 <nav class="navbar">
-    <p><%= link_to "To Do List - V360", root_path, class: current_page?(root_path) ? 'active' : nil %></p>
-    <ul id="activities-links">
-        <li><%= link_to "Listas", root_path,  class: current_page?(root_path) ? 'active' : nil %></li>
-        <li><%= link_to "Dashboards", dashboard_path, data: { turbo: "false" }, class: current_page?(dashboard_path) ? 'active' : nil %></li>
-    </ul>
+  <div class="logo-container">
+    <p class="navbar-title"><%= link_to image_tag("logo.png", size: "80x20"), root_path %></p>
+    <p class="navbar-title"><%= link_to "To Do List", root_path %></p>
+  </div>
+  <ul id="activities-links">
+    <li><%= link_to "Listas", root_path, class: current_page?(root_path) ? 'active' : nil %></li>
+    <li><%= link_to "Dashboards", dashboard_path, data: { turbo: "false" }, class: current_page?(dashboard_path) ? 'active' : nil %></li>
+  </ul>
 </nav>
