@@ -85,16 +85,3 @@ canvas {
   height: 80% ;
 }
 
-select {
-  font-size: 1rem; /* Para igualar o tamanho da fonte */
-  padding: 5px;    /* Um pouco de padding para estética */
-  height: auto;    /* Ajusta a altura conforme o conteúdo */
-  width: auto;     /* Deixa o select ocupar espaço conforme necessário */
-  margin-left: 10px; /* Espaço entre a palavra Etapa e o select */
-}
-
-.chart-container.completion h3 {
-  display: flex;
-  align-items: center; /* Alinha verticalmente o texto e o select */
-  font-size: 1.2rem; /* Ajuste o tamanho do texto, se necessário */
-}
