@@ -145,25 +145,21 @@ class TodosController < ApplicationController
 
 
   def upload_image
-    if params[:image].present?
+    if params[:image].present? && params[:image].content_type.start_with?("image/")
       image_path = params[:image].path
 
-
       image_annotator = Google::Cloud::Vision::V1::ImageAnnotator::Client.new
-
 
       response = image_annotator.document_text_detection image: image_path
       ocr_text = response.responses.first.full_text_annotation.text
 
-
       todo = Todo.create(name: 'Lista Fisica')
-
 
       ocr_text.each_line do |line|
         todo.tasks.create(title: line.strip) unless line.strip.empty?
       end
 
-      redirect_to todo_path(todo), notice: "Lista física criada com sucesso!"
+      redirect_to todo_path(todo)
     else
       redirect_to todos_path, alert: "Por favor, envie uma imagem."
     end
